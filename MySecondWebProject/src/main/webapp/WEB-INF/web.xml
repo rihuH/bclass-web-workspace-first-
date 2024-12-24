@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>MySecondWebProject</display-name>
+  
+  <!--  아래에 있는 파일 타입으로 모두 웰컴파일을 만들 수 있다.
+  서버에서 돌아가도록 하려면 Server에 올려야 한다. Servers오른버튼 누르고 Add and Remove로 올려줌 -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/views/error500.jsp</location>
+  </error-page>
+  
+  
+</web-app>

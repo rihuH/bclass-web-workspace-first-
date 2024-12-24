@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GET방식 요청 테스트</title>
+<style>
+	ul{
+		list-style : none;
+		line-height : 200%;
+	}
+</style>
+</head>
+<body>
+
+	<h1>POST방식으로 요청 후 응답데이터 받아오기</h1>
+	
+	<p>
+		특징.
+		1. POST방식으로 요청을 보내면 BODY영역에 데이터를 포함시켜서 요청 <br> 
+		(편지지에 쓰는 것)
+		=> 사용자가 입력한 값(데이터)들이 URL에 노출되지 않음 <br>
+		=> 보안유지가 가능함 <br>
+		=> 로그인, 회원가입 같은 기능은 POST방식이 적합함 <br>
+		
+		2. 전송하는 길이에 제약이 없음 <br>
+		(사실 길이 제약 있는데 길면 나눠서 보냄.)
+		=> 즉, 게시글 작성 같은 경우 POST방식이 적합함 <br>
+		헤더는 길이가 정해져있음(32byte정도) 이 길이를 넘어갈 수 없다<br>
+		POST는 바디에 적으므로 이 제약을 받지 않는 것<br>
+		
+		3. 최대 요청 받는 시간이 존재함 <br>
+		(GET방식은 하염없이 기다림)<br>
+		요청이 너무 많이 들어오면 요청 거부함<br><br>
+		
+		4. 새롭게 데이터를 만들어내는 기능에 적합하다. CRUD중에 C의 Insert에 적합<br>
+		
+		
+	</p>
+	
+	<h2>간단한 인적사항 - POST</h2>
+	<p>개인정보를 입력해주세요. 입력 확인 후 버튼을 눌러주세요.</p>
+	
+	<!-- 
+		http://localhost:80/first/postTest
+		웹형식으로데이터주고받음(하이퍼텍스트를 전송하는 규약에 맞춰서 요청 보낼 것) :// 
+		인터넷세상에서 웹요청을 받는 서버를 특정하기 위한 주소(IP주소) : 실행중인 프로세스 중 어떤 프로세스에 요청을 보내는 것인지 (우리서버로 치면 톰캣인것)/
+		톰캣에 여러 어플리케이션이 올라가있을 것, 그 중 어떤 것/ 
+		애플리케이션까지 옴. 어느 서블릿에게 보낼건지 서블릿을 구분하기 위한 서블릿 매핑값
+		
+		요청을 보냈을 때 응답이 잘 되면 200번이 옴
+		4번대 : 
+			404 : 요청을 받아줄 서블릿 매핑값을 잘못 적었을 때 또는 서블릿이 없을 때
+		5번대 : 자바코드 잘못
+	 -->
+	
+	<form action="/first/postTest" method="post">
+		<ul>
+			<li>
+				이름 : <input type="text" name="name" id="name-input" placeholder="네임"/>
+			</li>
+			<li>
+				성별 : 
+				남자 <input type="radio" name="gender" value="M">
+				여자 <input type="radio" name="gender" value="F">
+			</li>
+			<li>
+				나이 : <input type="number" name="age" placeholder="나이" value="0"/>
+			</li>
+			<li>
+				사는지역 : 
+				<select name="city">
+					<option>서울</option>
+					<option>제주도</option>					
+				</select>
+			</li>
+			<li>
+				키 : 140 <input type="range" min="140" max="200" name="height"> 200
+			</li>
+			<li>
+				좋아하는음식(모두 고르시오)
+				파스타 <input type="checkbox" value="파스타" name="food">
+				스테이크 <input type="checkbox" value="스테이크" name="food">
+				곱창 <input type="checkbox" value="곱창" name="food">
+				초밥 <input type="checkbox" value="초밥" name="food">
+				커피 <input type="checkbox" value="커피" name="food">
+			</li>
+			<li>
+				<input type="submit">
+				<input type="reset">
+			</li>
+		</ul>
+	
+	</form>	
+	
+	
+</body>
+</html>

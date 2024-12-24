@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+
+<!-- 
+	* web.xml 파일
+	
+	- 배포 서술자(DD, Deployment Descriptor)
+	- 해당 웹 어플리케이션의 기본적인 설정을 위해서 작성하는 파일
+	- 해당 어플리케이션을 구동하는 서버가 Start시 제일 먼저 읽히는 파일
+	- 개발자가 web.xml파일을 수정하지 않고도 개발 및 운영이 가능하지만
+	하지만 규모가 커질 경우 직접 수정해야하는 경우가 대다수
+ -->
+
+  <display-name>MyFirstWebProject</display-name>
+<!-- 
+	* welcome-file : 처음에 클라이언트가 Web Browser를 통해서 URL을 입력해서
+					 요청 시 가장 먼저 보여지게 되는 메인페이지를 지정하는 태그
+					 
+					 http://구동중인서버의ip주소:포트번호/contextRoot 
+					 (서버가 돌리고 있는 것 중에 어떤 어플리케이션??)
+					 
+					 => 각자 본인 컴퓨터에 구축해놓은 서버의 IP주소를 지정 : 127.0.0.1 == localhost
+					 => 서버의 포트번호 : 80(80일 경우 생략가능. HTTP통신은 기본적으로 80이기 때문)
+					 => 서버내의 구동중인 contextRoot 지정 : 지금은 first
+					 localhost/first
+					 이렇게 요청이 왔을 때 어떤 파일을 웰컴파일로 반겨줄 것인가.
+					 index를 default보다 많이 쓴다. 새롭게 만들 수도 있음.
+					 필요 없는 파일들은 지우면 됨.
+					 
+					 단, welcome-file-list에 존재하는 파일명은 반드시 webapp폴더에 위치해야함
+ -->
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>
